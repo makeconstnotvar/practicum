@@ -11,17 +11,20 @@ reader.on('line', line => line && lines.push(line));
 process.stdin.on('end', resolve);
 
 function resolve() {
-  const [n, data, k] = lines;
+  const [a, b, c] = lines;
+  const n = +a;
+  const data = b.trim(" ").split(" ").map(x => +x);
+  const k = +c;
+
   let sum = 0;
+  const result = [];
   for (let i = 0; i < k; i++) {
     sum += data[i];
   }
-  for (let i = 0; i < n; i++) {
-    let start = i;
-    let end = i + k;
-
+  result.push(sum / k);
+  for (let i = 0; i < n - k; i++) {
+    sum = sum - data[i] + data[i + k];
+    result.push(sum / k);
   }
-
-
-  console.log();
+  console.log(result.join(' '))
 }
