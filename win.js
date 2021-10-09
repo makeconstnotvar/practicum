@@ -15,16 +15,19 @@ function resolve() {
   const n = +a;
   const data = b.trim(" ").split(" ").map(x => +x);
   const k = +c;
+  console.log(window(n, data, k))
+}
 
+function window(n, numbers, k) {
   let sum = 0;
   const result = [];
   for (let i = 0; i < k; i++) {
-    sum += data[i];
+    sum += numbers[i];
   }
   result.push(sum / k);
   for (let i = 0; i < n - k; i++) {
-    sum = sum - data[i] + data[i + k];
+    sum = sum - numbers[i] + numbers[i + k];
     result.push(sum / k);
   }
-  console.log(result.join(' '))
+  return result;
 }
