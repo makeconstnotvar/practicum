@@ -1,31 +1,30 @@
-let arr = [1, 1, 0, 1, 4, 9, 7, 0, 12, 5]
+let arr = [1, 1, 1, 99, 0, 100, 72, 43, 49, 0, 51, 19, 61, 93, 31]
 let n = arr.length;
 let value = 0;
 let zeros = 0;
-let started = false;
-for (let i = 0; i < n; i++) {
+let i = 0;
+let j = 0;
+while (i < n) {
   if (arr[i] == 0) {
     value = 0;
     zeros++;
+    j = i;
   } else {
     value++;
   }
   arr[i] = value;
+  i++;
 }
-for (let i = n - 1; i >= 0; i--) {
-  if (arr[i] == 0) {
-    started = true;
+
+while (j >= 0) {
+  if (arr[j] == 0) {
     value = 0;
     zeros--;
   }
-  if (started) {
-    if (zeros == 0) {
-      arr[i] = value;
-      value++;
-    } else if (value < arr[i]) {
-      value++;
-      arr[i] = value;
-    }
+  else if (zeros == 0 || value < arr[j]) {
+    value++;
+    arr[j] = value;
   }
+  j--;
 }
 console.log(arr.join(' '))
