@@ -43,7 +43,7 @@ class Stack {
 
   pop() {
     if (this.isEmpty()) {
-      return 'error'
+      console.log('error');
     } else {
       this.max.pop();
       this.min.pop();
@@ -68,6 +68,17 @@ class Stack {
   }
 
   get_max() {
-    return this.maxTop;
+    if(this.maxEmpty)
+      console.log('None');
+    else
+      console.log(this.maxTop);
   }
 }
+let s = new Stack()
+s.get_max()
+s.push(-6)
+s.get_max()
+s.pop()
+s.push(-5)
+s.push(-7)
+s.get_max()
