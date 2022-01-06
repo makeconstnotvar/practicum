@@ -15,5 +15,5 @@ for (let i = 0; i < len; i++) {
     mapA[a] = b;
     mapB[b] = a;
   }
-}
+}//
 console.log(result)
