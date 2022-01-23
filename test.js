@@ -1,4 +1,4 @@
-const readline = require('readline');
+/*const readline = require('readline');
 
 const reader = readline.createInterface({
   input: process.stdin
@@ -33,3 +33,26 @@ function resolve() {
     console.log(row.join(' '));
   })
 }
+*/
+
+const compose1 = (...fns) => x => fns.reduceRight((arg, fn) => fn(arg), x);
+
+function compose2(...fns) {
+  return function (arg) {
+    return fns.reduce(function (composed, fn) {
+      fn(composed)
+      return arg
+    })
+  }
+}
+
+function compose3(...fns) {
+  return function (...args) {
+    return fns.reduce(function (f, g) {
+      return f(g.apply(this, args));
+    });
+  }
+}
+
+let x = compose1(a => a + 1, b => b + 2, c => c + 3);
+console.log(x(1))
