@@ -1,2 +1,2 @@
-## practicum
+# practicum
 Yandex Practicum training
