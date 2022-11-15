@@ -1,28 +1,39 @@
-/* https://contest.yandex.ru/contest/26365/problems/A/
- *
- * Это ваша первая задача.
- * В ней вам придётся прочитать два числа и сложить их.
- * Результат необходимо вывести на стандартный поток вывода или в файл, указанный в условии задачи.
- *
- */
+/*
+https://contest.yandex.ru/contest/22449/problems/
 
+Вася делает тест по математике: вычисляет значение функций в различных точках.
+Стоит отличная погода, и друзья зовут Васю гулять. Но мальчик решил сначала закончить тест и только после этого идти к друзьям. К сожалению, Вася пока не умеет программировать.
+Зато вы умеете. Помогите Васе написать код функции, вычисляющей y = ax2 + bx + c.
+Напишите программу, которая будет по коэффициентам a, b, c и числу x выводить значение функции в точке x.
+
+Формат ввода
+На вход через пробел подаются целые числа a, x, b, c. В конце ввода находится перенос строки.
+
+Формат вывода
+Выведите одно число — значение функции в точке x.
+
+Примеры
+-8 -5 -2 7 => -183
+8 2 9 -10 => 40
+*/
 
 const readline = require('readline');
 
 const reader = readline.createInterface({
-    input: process.stdin
+  input: process.stdin
 });
 
 const lines = [];
 
-reader.on('line', line => line && lines.push(+line.trim()));
+reader.on('line', line => line && lines.push(line));
 
 process.stdin.on('end', resolve);
 
 function resolve() {
-    const [a, b] = lines;
-
-    const answer = a + b;
-
-    console.log(answer);
+  const datas = lines[0].split(' '),
+    a = Number(datas[0]),
+    x = Number(datas[1]),
+    b = Number(datas[2]),
+    c = Number(datas[3]);
+  console.log(a * x * x + b * x + c)
 }
